@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="css/images/icon.png" type="image/x-icon" />
+    <title>TourMate</title>
+    <link rel="stylesheet" href="css/cabs.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+      <div class="all">
+    <div class="navigation">
+      <div class="logo">
+        <a href="#"><img src="css/images/blogo2.png" /></a>
+      </div>
+      <ul>
+        <li class="list">
+          <a href="{{url_for('city',city_name=city_name)}}">
+            <span class="icon"><i class="fas fa-arrow-left"></i></span>
+            <span class="title"><b>Go Back</b></span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="{{url_for('tourist',city_name=city_name)}}">
+            <span class="icon"><i class="fas fa-landmark"></i></span>
+            <span class="title"><b>Tourist Spots</b></span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="{{url_for('restaurant',city_name=city_name)}}">
+            <span class="icon"><i class="fas fa-utensils"></i></span>
+            <span class="title"><b>Restaurants</b></span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="{{url_for('hotel',city_name=city_name)}}">
+            <span class="icon"><i class="fas fa-hotel"></i></span>
+            <span class="title"><b>Hotels</b></span>
+          </a>
+        </li>
+        <li class="list active">
+          <a href="{{url_for('cabs',city_name=city_name)}}">
+            <span class="icon"><i class="fas fa-taxi"></i></span>
+            <span class="title"><b>Cabs</b></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+   <div class="container">
+    <h1 style="padding: 10px; color: #fff;"> Available Cabs in {{city_name}}</h1>
+      <div class="row-items">
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{car_image[0]}}" />
+          </div>
+          <h4><i class="fas fa-taxi"></i> {{car[0]}} - <i class="fas fa-users"></i> {{capacity[0]}}</h4>
+          <p class="drivername">
+            <b style="color: black"><i class="fas fa-user-tie"></i> Driver:</b>{{driver_name[0]}}
+          </p>
+          <p><b style="color: black"><i class="fas fa-phone"></i> {{contact[0]}}</b></p>
+          <p class="green"><b>Free Cancellation</b></p>
+          <p><b>Rating:</b><span>{{generate_star_rating(rating[0])}}</span></p>
+          <span>₹{{fees[0]}}/Km</span>
+          <a href="{{url_for('cab_booking',car_name=car[0],city_name=city_name,driver_name=driver_name[0],fees=fees[0])}}"><button>Book</button></a>
+        </div>
+
+       <div class="container-box">
+          <div class="container-img">
+            <img src="{{car_image[1]}}" />
+          </div>
+          <h4><i class="fas fa-taxi"></i> {{car[1]}} - <i class="fas fa-users"></i> {{capacity[1]}}</h4>
+          <p class="drivername">
+            <b style="color: black"><i class="fas fa-user-tie"></i> Driver:</b>{{driver_name[1]}}
+          </p>
+          <p><b style="color: black"><i class="fas fa-phone"></i> {{contact[1]}}</b></p>
+          <p class="green"><b>Free Cancellation</b></p>
+          <p><b>Rating:</b><span>{{generate_star_rating(rating[1])}}</span></p>
+          <span>₹{{fees[1]}}/Km</span>
+          <a href="{{url_for('cab_booking',car_name=car[1],city_name=city_name,driver_name=driver_name[1],fees=fees[1])}}"><button>Book</button></a>
+        </div>
+
+       <div class="container-box">
+          <div class="container-img">
+            <img src="{{car_image[2]}}" />
+          </div>
+          <h4><i class="fas fa-taxi"></i> {{car[2]}} - <i class="fas fa-users"></i> {{capacity[2]}}</h4>
+          <p>
+            <b style="color: black"><i class="fas fa-user-tie"></i> Driver:</b> {{driver_name[2]}}
+          </p>
+          <p><b style="color: black"><i class="fas fa-phone"></i> {{contact[2]}}</b></p>
+          <p class="green"><b>Free Cancellation</b></p>
+          <p><b>Rating:</b><span>{{generate_star_rating(rating[2])}}</span></p>
+          <span>₹{{fees[2]}}/Km</span>
+          <a href="{{url_for('cab_booking',car_name=car[2],city_name=city_name,driver_name=driver_name[2],fees=fees[2])}}"><button>Book</button></a>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{car_image[3]}}" />
+          </div>
+          <h4><i class="fas fa-taxi"></i> {{car[3]}} - <i class="fas fa-users"></i> {{capacity[3]}}</h4>
+          <p>
+            <b style="color: black"><i class="fas fa-user-tie"></i> Driver:</b> {{driver_name[3]}}
+          </p>
+          <p><b style="color: black"><i class="fas fa-phone"></i> {{contact[3]}}</b></p>
+          <p class="green"><b>Free Cancellation</b></p>
+          <p><b>Rating:</b><span>{{generate_star_rating(rating[3])}}</span></p>
+          <span>₹{{fees[3]}}/Km</span>
+          <a href="{{url_for('cab_booking',car_name=car[3],city_name=city_name,driver_name=driver_name[3],fees=fees[3])}}"><button>Book</button></a>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{car_image[4]}}" />
+          </div>
+          <h4><i class="fas fa-taxi"></i> {{car[4]}} - <i class="fas fa-users"></i> {{capacity[4]}}</h4>
+          <p>
+            <b style="color: black"><i class="fas fa-user-tie"></i> Driver:</b> {{driver_name[4]}}
+          </p>
+          <p><b style="color: black"><i class="fas fa-phone"></i> {{contact[4]}}</b></p>
+          <p class="green"><b>Free Cancellation</b></p>
+          <p><b>Rating:</b><span>{{generate_star_rating(rating[4])}}</span></p>
+          <span>₹{{fees[4]}}/Km</span>
+          <a href="{{url_for('cab_booking',car_name=car[4],city_name=city_name,driver_name=driver_name[4],fees=fees[4])}}"><button>Book</button></a>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{car_image[5]}}" />
+          </div>
+          <h4><i class="fas fa-taxi"></i> {{car[5]}} - <i class="fas fa-users"></i> {{capacity[5]}}</h4>
+          <p>
+            <b style="color: black"><i class="fas fa-user-tie"></i> Driver:</b> {{driver_name[5]}}
+          </p>
+          <p><b style="color: black"><i class="fas fa-phone"></i> {{contact[5]}}</b></p>
+          <p class="green"><b>Free Cancellation</b></p>
+          <p><b>Rating:</b><span>{{generate_star_rating(rating[5])}}</span></p>
+          <span>₹{{fees[5]}}/Km</span>
+          <a href="{{url_for('cab_booking',car_name=car[5],city_name=city_name,driver_name=driver_name[5],fees=fees[5])}}"><button>Book</button></a>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{car_image[6]}}" />
+          </div>
+          <h4><i class="fas fa-taxi"></i> {{car[6]}} - <i class="fas fa-users"></i> {{capacity[6]}}</h4>
+          <p>
+            <b style="color: black"><i class="fas fa-user-tie"></i> Driver:</b> {{driver_name[6]}}
+          </p>
+          <p><b style="color: black"><i class="fas fa-phone"></i> {{contact[6]}}</b></p>
+          <p class="green"><b>Free Cancellation</b></p>
+          <p><b>Rating:</b><span>{{generate_star_rating(rating[6])}}</span></p>
+          <span>₹{{fees[6]}}/Km</span>
+          <a href="{{url_for('cab_booking',car_name=car[6],city_name=city_name,driver_name=driver_name[6],fees=fees[6])}}"><button>Book</button></a>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{car_image[7]}}" />
+          </div>
+          <h4><i class="fas fa-taxi"></i> {{car[7]}} - <i class="fas fa-users"></i> {{capacity[7]}}</h4>
+          <p>
+            <b style="color: black"><i class="fas fa-user-tie"></i> Driver:</b> {{driver_name[7]}}
+          </p>
+          <p><b style="color: black"><i class="fas fa-phone"></i> {{contact[7]}}</b></p>
+          <p class="green"><b>Free Cancellation</b></p>
+          <p><b>Rating:</b><span>{{generate_star_rating(rating[7])}}</span></p>
+          <span>₹{{fees[7]}}/Km</span>
+          <a href="{{url_for('cab_booking',car_name=car[7],city_name=city_name,driver_name=driver_name[7],fees=fees[7])}}"><button>Book</button></a>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{car_image[8]}}" />
+          </div>
+          <h4><i class="fas fa-taxi"></i> {{car[8]}} - <i class="fas fa-users"></i> {{capacity[8]}}</h4>
+          <p>
+            <b style="color: black"><i class="fas fa-user-tie"></i> Driver:</b> {{driver_name[8]}}
+          </p>
+          <p><b style="color: black"><i class="fas fa-phone"></i> {{contact[8]}}</b></p>
+          <p class="green"><b>Free Cancellation</b></p>
+          <p><b>Rating:</b><span>{{generate_star_rating(rating[8])}}</span></p>
+          <span>₹{{fees[8]}}/Km</span>
+          <a href="{{url_for('cab_booking',car_name=car[8],city_name=city_name,driver_name=driver_name[8],fees=fees[8])}}"><button>Book</button></a>
+        </div>
+      </div>
+    </div>
+  <!--  <div class="popup">-->
+  <!--    <h1>Book a Ride!</h1>-->
+  <!--    <button class="close-btn">&times;</button>-->
+  <!--    <div class="booking-form">-->
+  <!--      <label>Name:</label>-->
+  <!--      <input type="text" name="form-control" placeholder="Enter Your Name">-->
+  <!--      <br>-->
+  <!--      <label>Phone:</label>-->
+  <!--      <input type="tel" id="phone" name="phone" placeholder="123-45-678" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>-->
+  <!--      <br>-->
+  <!--      <label>Pick-up address:</label>-->
+  <!--      <input type="text" name="form-control" placeholder="Enter pick-up address">-->
+  <!--      <br>-->
+  <!--      <label>Drop address:</label>-->
+  <!--      <input type="text" name="form-control" placeholder="Enter drop address">-->
+  <!--      <div class="input-grp">-->
+  <!--      <label>Passengers:</label>-->
+  <!--      <input type="number" name="form-control" value="1">-->
+  <!--      </div>-->
+  <!--        <div class="input-grp">-->
+  <!--      <label>Ride-Type:</label>-->
+  <!--      <select class="custom-select">-->
+  <!--        <option value="1">One Way</option>-->
+  <!--        <option value="2">Two Way</option>-->
+  <!--      </select>-->
+  <!--      </div>-->
+  <!--      <a class="submitbtn" href="#"><button>Submit</button></a>-->
+  <!--      </div>-->
+  <!--    </p>-->
+  <!--  </div>-->
+  <!--</div>-->
+
+  <!--<script>-->
+
+<!--      var buttons = document.getElementsByClassName('open-popup');-->
+<!--       for(var i=0; i<buttons.length; i++){-->
+<!--      buttons[i].addEventListener("click", function() {-->
+<!--          document.body.classList.add("active-popup");-->
+<!--        });-->
+<!--}-->
+
+<!--      // var btnContainer = document.getElementsByClassName("open-popup");-->
+<!--      // btnContainer[0].addEventListener("click", function () {-->
+<!--      //     document.body.classList.add("active-popup");-->
+<!--      //   });-->
+
+<!--      document.querySelector(".popup .close-btn")-->
+<!--        .addEventListener("click", function () {-->
+<!--          document.body.classList.remove("active-popup");-->
+<!--        });-->
+    <!--</script>-->
+
+
+
+    <script>
+      const list = document.querySelectorAll(".list");
+      function activeLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+
+      list.forEach((item) => item.addEventListener("click", activeLink));
+    </script>
+  </body>
+</html>

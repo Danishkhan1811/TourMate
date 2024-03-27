@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="css/images/icon.png" type="image/x-icon" />
+    <title>TourMate</title>
+    <!-- <link rel="stylesheet" href="css/hotel.css" /> -->
+    <link rel="stylesheet" href="css/cab-booking.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
+    <script>
+        function updateRestaurant(form) {
+            var xhr = new XMLHttpRequest();
+            xhr.open(form.method, form.action);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    alert('Your ride has been booked successfully!');
+                } else {
+                    alert('Your ride could not be booked due to an error!!!');
+                }
+            };
+            xhr.send(new FormData(form));
+        }
+    </script>
+  </head>
+  <body>
+    <div class="navigation">
+      <div class="logo">
+        <a href="#"><img src="css/images/blogo2.png" /></a>
+      </div>
+      <ul>
+        <li class="list">
+          <a href= "{{ url_for('city',city_name=city_name) }}">
+            <span class="icon"><i class="fas fa-arrow-left"></i></span>
+            <span class="title"><b>Go Back</b></span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="{{ url_for('tourist',city_name=city_name) }}">
+            <span class="icon"><i class="fas fa-landmark"></i></span>
+            <span class="title"><b>Tourist Spots</b></span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="{{ url_for('restaurants',city_name=city_name) }}">
+            <span class="icon"><i class="fas fa-utensils"></i></span>
+            <span class="title"><b>Restaurants</b></span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="{{ url_for('hotel',city_name=city_name) }}">
+            <span class="icon"><i class="fas fa-hotel"></i></span>
+            <span class="title"><b>Hotels</b></span>
+          </a>
+        </li>
+        <li class="list active">
+          <a href="{{ url_for('cabs',city_name=city_name) }}">
+            <span class="icon"><i class="fas fa-taxi"></i></span>
+            <span class="title"><b>Cabs</b></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="form-body">
+    <div class="form-container">
+      <header>Book Your Ride!</header>
+
+      <form method="POST" action="{{ url_for('add_cab_booking',car_name=car_name,fees=fees,driver_name=driver_name) }}" onsubmit="event.preventDefault(); updateRestaurant(this);">
+        <div class="form first">
+          <div class="details personal">
+
+            <div class="fields">
+              <div class="input-field">
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="Enter your name" required />
+              </div>
+
+              <div class="input-field">
+                <label>Mobile Number</label>
+                <input type="number" name="mobile" placeholder="Enter mobile number" required />
+              </div>
+
+              <div class="input-field">
+                <label>Number of passengers</label>
+                <input type="number" name="passenger" placeholder="Enter Number of passengers" min="1"/>
+              </div>
+
+                <div class="input-field">
+                  <label>Pick-up address</label>
+                  <input type="text" name="pick-up-address" placeholder="Enter pick-up address" required />
+                </div>
+
+                <div class="input-field">
+                    <label>Destination address</label>
+                    <input type="text" name="destination" placeholder="Enter destination address" required />
+                </div>
+
+              <div class="input-field">
+              <label>Departure time:</label>
+              <input type="time" name="departure-time" placeholder="Enter departure time" required/>
+              </div>
+
+              <button type="submit" class="update-btn" onsubmit="event.preventDefault(); updateRestaurant(this);">Book</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+
+    </div>
+</div>
+    <script>
+      const list = document.querySelectorAll(".list");
+      function activeLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+      list.forEach((item) => item.addEventListener("click", activeLink));
+    </script>
+
+    <!-- <script>
+      const form = document.querySelector("form"),
+        nextBtn = form.querySelector(".nextBtn"),
+        backBtn = form.querySelector(".backBtn"),
+        allInput = form.querySelectorAll(".first input");
+
+      nextBtn.addEventListener("click", () => {
+        allInput.forEach((input) => {
+          if (input.value != "") {
+            form.classList.add("secActive");
+          } else {
+            form.classList.remove("secActive");
+          }
+        });
+      });
+
+      backBtn.addEventListener("click", () =>
+        form.classList.remove("secActive")
+      );
+    </script> -->
+  </body>
+</html>

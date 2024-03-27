@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="css/images/icon.png" type="image/x-icon" />
+    <title>TourMate</title>
+    <link rel="stylesheet" href="css/tourist.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+  </head>
+  <body>
+    <div class="navigation">
+      <div class="logo">
+        <a href="#"><img src="css/images/blogo2.png" /></a>
+      </div>
+      <ul>
+        <li class="list">
+          <a href="{{url_for('city')}}">
+            <span class="icon"><i class="fas fa-arrow-left"></i></span>
+            <span class="title"><b>Go Back</b></span>
+          </a>
+        </li>
+        <li class="list active">
+          <a href="{{url_for('tourist',city_name=city_name)}}">
+            <span class="icon"><i class="fas fa-landmark"></i></span>
+            <span class="title"><b>Tourist Spots</b></span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="{{url_for('restaurant',city_name=city_name)}}">
+            <span class="icon"><i class="fas fa-utensils"></i></span>
+            <span class="title"><b>Restaurants</b></span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="{{url_for('hotel',city_name=city_name)}}">
+            <span class="icon"><i class="fas fa-hotel"></i></span>
+            <span class="title"><b>Hotels</b></span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="{{url_for('cabs',city_name=city_name)}}">
+            <span class="icon"><i class="fas fa-taxi"></i></span>
+            <span class="title"><b>Cabs</b></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+<div class="all">
+    <div class="container">
+    <h1 style="padding: 10px; color: #fff;"> Tourist Spots in {{city_name}}</h1>
+      <div class="row-items">
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{image[0]}}" />
+          </div>
+          <h4>{{spot[0]}}</h4>
+          <p>
+           {{description[0]}}
+          </p>
+          <button class="open-popup">More Info <i class="fa-solid fa-angles-right"></i></button>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{image[1]}}" />
+          </div>
+          <h4>{{spot[1]}}</h4>
+          <p>
+            {{description[1]}}
+          </p>
+           <button class="open-popup1">More Info <i class="fa-solid fa-angles-right"></i></button>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{image[2]}}" />
+          </div>
+          <h4>{{spot[2]}}</h4>
+          <p>
+            {{description[2]}}
+          </p>
+          <button class="open-popup2">More Info <i class="fa-solid fa-angles-right"></i></button>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{image[3]}}" />
+            </div>
+          <h4>{{spot[3]}}</h4>
+          <p>
+            {{description[3]}}
+          </p>
+          <button class="open-popup3">More Info <i class="fa-solid fa-angles-right"></i></button>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{image[4]}}" />
+          </div>
+          <h4>{{spot[4]}}</h4>
+          <p>
+            {{description[4]}}
+          </p>
+          <button class="open-popup4">More Info <i class="fa-solid fa-angles-right"></i></button>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{image[5]}}" />
+          </div>
+          <h4>{{spot[5]}}</h4>
+          <p>
+            {{description[5]}}
+          </p>
+          <button class="open-popup5">More Info <i class="fa-solid fa-angles-right"></i></button>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{image[6]}}" />
+          </div>
+          <h4>{{spot[6]}}</h4>
+          <p>
+            {{description[6]}}
+          </p>
+          <button class="open-popup6">More Info <i class="fa-solid fa-angles-right"></i></button>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{image[7]}}" />
+          </div>
+          <h4>{{spot[7]}}</h4>
+          <p>
+            {{description[7]}}
+          </p>
+          <button class="open-popup7">More Info <i class="fa-solid fa-angles-right"></i></button>
+        </div>
+
+        <div class="container-box">
+          <div class="container-img">
+            <img src="{{image[8]}}" />
+          </div>
+          <h4>{{spot[8]}}</h4>
+          <p>
+            {{description[8]}}
+          </p>
+          <button class="open-popup8">More Info <i class="fa-solid fa-angles-right"></i></button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="popup">
+    <h1>More Info</h1>
+    <button class="close-btn">&times;</button>
+    <div class="info">
+      <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+      <p>
+        {{address[0]}}
+      </p>
+      <h3><i class="fas fa-clock"></i> Timings</h3>
+      <p>{{timings[0]}}</p>
+    </div>
+    </div>
+
+      <div class="popup1">
+        <h1>More Info</h1>
+        <button class="close-btn1">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+           {{address[1]}}
+          </p>
+          <h3><i class="fas fa-clock"></i> Timings</h3>
+          <p>{{timings[1]}}</p>
+        </div>
+      </div>
+
+      <div class="popup2">
+        <h1>More Info</h1>
+        <button class="close-btn2">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+            {{address[2]}}
+          </p>
+          <h3><i class="fas fa-clock"></i> Timings</h3>
+          <p>{{timings[2]}}</p>
+        </div>
+      </div>
+
+      <div class="popup3">
+        <h1>More Info</h1>
+        <button class="close-btn3">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+            {{address[3]}}
+          </p>
+          <h3><i class="fas fa-clock"></i> Timings</h3>
+          <p>{{timings[3]}}</p>
+        </div>
+      </div>
+
+      <div class="popup4">
+        <h1>More Info</h1>
+        <button class="close-btn4">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+           {{address[4]}}
+          </p>
+          <h3><i class="fas fa-clock"></i> Timings</h3>
+          <p>{{timings[4]}}</p>
+        </div>
+      </div>
+
+      <div class="popup5">
+        <h1>More Info</h1>
+        <button class="close-btn5">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+           {{address[5]}}
+          </p>
+          <h3><i class="fas fa-clock"></i> Timings</h3>
+          <p>{{timings[5]}}</p>
+        </div>
+      </div>
+
+      <div class="popup6">
+        <h1>More Info</h1>
+        <button class="close-btn6">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+            {{address[6]}}
+          </p>
+          <h3><i class="fas fa-clock"></i> Timings</h3>
+          <p>{{timings[6]}}</p>
+        </div>
+      </div>
+
+      <div class="popup7">
+        <h1>More Info</h1>
+        <button class="close-btn7">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+            {{address[7]}}
+          </p>
+          <h3><i class="fas fa-clock"></i> Timings</h3>
+          <p>{{timings[7]}}</p>
+        </div>
+      </div>
+
+      <div class="popup8">
+        <h1>More Info</h1>
+        <button class="close-btn8">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+            {{address[8]}}
+          </p>
+          <h3><i class="fas fa-clock"></i> Timings</h3>
+          <p>{{timings[8]}}</p>
+        </div>
+      </div>
+      </div>
+
+
+
+     <script>
+        var buttons = document.getElementsByClassName('open-popup');
+         for(var i=0; i<buttons.length; i++){
+        buttons[i].addEventListener("click", function() {
+            document.body.classList.add("active-popup");
+          });
+
+  }
+        // var btnContainer = document.getElementsByClassName("open-popup");
+        // btnContainer[0].addEventListener("click", function () {
+        //     document.body.classList.add("active-popup");
+        //   });
+
+        document.querySelector(".popup .close-btn")
+          .addEventListener("click", function () {
+            document.body.classList.remove("active-popup");
+          });
+
+
+          //////////////////////////////
+
+      var buttons = document.getElementsByClassName("open-popup1");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup1");
+        });
+      }
+      document
+        .querySelector(".popup1 .close-btn1")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup1");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup2");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup2");
+        });
+      }
+      document
+        .querySelector(".popup2 .close-btn2")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup2");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup3");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup3");
+        });
+      }
+      document
+        .querySelector(".popup3 .close-btn3")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup3");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup4");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup4");
+        });
+      }
+      document
+        .querySelector(".popup4 .close-btn4")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup4");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup5");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup5");
+        });
+      }
+      document
+        .querySelector(".popup5 .close-btn5")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup5");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup6");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup6");
+        });
+      }
+      document
+        .querySelector(".popup6 .close-btn6")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup6");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup7");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup7");
+        });
+      }
+      document
+        .querySelector(".popup7 .close-btn7")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup7");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup8");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup8");
+        });
+      }
+      document
+        .querySelector(".popup8 .close-btn8")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup8");
+        });
+
+////////////////////////////////
+      </script>
+
+
+
+    <!-- Javascript for sidebar -->
+    <script>
+      const list = document.querySelectorAll(".list");
+      function activeLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+
+      list.forEach((item) => item.addEventListener("click", activeLink));
+    </script>
+  </body>
+</html>

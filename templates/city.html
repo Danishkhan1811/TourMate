@@ -1,0 +1,222 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="css/images/icon.png" type="image/x-icon">
+    <title>TourMate</title>
+
+    <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- Google Fonts CDN Link -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="css/city.css" />
+  </head>
+
+
+<body>
+<!--header--->
+<header>
+  <a href="{{url_for('main')}}" class="logo"><img src="css/images/logo.png"></a>
+  <a href="{{url_for('main')}}" class="logo2"><img src="css/images/blogo.png"></a>
+<div class="bx bx-menu" id="menu-icon"></div>
+<ul class="navbar">
+<li><a href="{{url_for('main')}}">Home</a></li>
+<li><a href="{{url_for('city')}}">City</a></li>
+<li><a href="{{url_for('translate')}}">Translate</a></li>
+<li><a href="{{url_for('weather')}}">Weather</a></li>
+<li class="logout-btn"><a href="{{url_for('logout')}}"><div class="bx bx-log-out"></div> Log Out</a></li>
+</ul>
+</header>
+
+   <!-- CITY LIST -->
+    <div class="flip-card">
+      <div class="flip-card-front" style="background-image: url(css/images/city1.jpg);">
+        <div class="inner">
+          <h3>Mumbai</h3>
+         <p>Maharashtra</p>
+        </div>
+      </div>
+      <div class="flip-card-back">
+        <div class="inner">
+          <p>
+            Mumbai, India, is famous for its chaotic streets. For bargains and
+            people-watching, outdoor bazaars top the list of attractions. Popular waterfront destinations are Marine
+            Drive, where visitors go to watch the sun set over the Arabian Sea, and the carnival-like Juhu Beach.
+            Mumbai has many religious sites, lakes and parks.
+          </p>
+          <h3>Explore</h3>
+          <div class="icons">
+            <a href="{{url_for('tourist',city_name='Mumbai')}}"><i class="fas fa-landmark"></i></a>
+            <a href="{{url_for('restaurant',city_name='Mumbai')}}"><i class="fas fa-utensils"></i></a>
+            <a href="{{url_for('hotel',city_name='Mumbai')}}"><i class="fas fa-hotel"></i></a>
+            <a href="{{url_for('cabs',city_name='Mumbai')}}"><i class="fas fa-taxi"></i></a>
+         </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-front" style="background-image: url(css/images/city2.jpg);">
+        <div class="inner">
+          <h3>New Delhi</h3>
+         <p>Delhi</p>
+        </div>
+      </div>
+      <div class="flip-card-back">
+        <div class="inner">
+          <p>
+           The national capital of India, Delhi actually consists of
+           two parts: Old Delhi, in the north, the historic city; and New Delhi, in the south, since 1947 the
+           capital of India, built in the first part of the 20th century as the capital of British India.
+           One of the country’s largest urban area, Delhi sits astride the Yamuna River,
+           a tributary of the Ganga River, about 100 miles south of the Himalayas.
+          </p>
+          <h3>Explore</h3>
+          <div class="icons">
+            <a href="{{url_for('tourist',city_name='New Delhi')}}"><i class="fas fa-landmark"></i></a>
+            <a href="{{url_for('restaurant',city_name='New Delhi')}}"><i class="fas fa-utensils"></i></a>
+            <a href="{{url_for('hotel',city_name='New Delhi')}}"><i class="fas fa-hotel"></i></a>
+            <a href="{{url_for('cabs',city_name='New Delhi')}}"><i class="fas fa-taxi"></i></a>
+         </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-front" style="background-image: url(css/images/city3.jpg);">
+        <div class="inner">
+          <h3>Kolkata</h3>
+         <p>West Bengal</p>
+        </div>
+      </div>
+      <div class="flip-card-back">
+        <div class="inner">
+          <p>
+            Situated in the North-east region of India, Kolkata is the capital of West Bengal and also a
+            very important port. Fashioned with colonial British architecture, it is known for its art
+            galleries and cultural festivals. Kolkata is also famous for it's food with the sweet dishes
+            being the centre of attraction.
+          </p>
+          <h3>Explore</h3>
+          <div class="icons">
+            <a href="{{url_for('tourist',city_name='Kolkata')}}"><i class="fas fa-landmark"></i></a>
+            <a href="{{url_for('restaurant',city_name='Kolkata')}}"><i class="fas fa-utensils"></i></a>
+            <a href="{{url_for('hotel',city_name='Kolkata')}}"><i class="fas fa-hotel"></i></a>
+            <a href="{{url_for('cabs',city_name='Kolkata')}}"><i class="fas fa-taxi"></i></a>
+         </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-front" style="background-image: url(css/images/city4.jpg);">
+        <div class="inner">
+          <h3>Chennai</h3>
+         <p>TamilNadu</p>
+        </div>
+      </div>
+      <div class="flip-card-back">
+        <div class="inner">
+          <p>
+           Chennai, formerly known as Madras,is the capital city of Tamil Nadu.
+           It is the state's primate city both in area and population and is located on the Coromandel Coast of the Bay of Bengal.
+           Ancient temples, vibrant arts, natural wonders and a bustling culinary scene make Chennai,
+            one of the most popular tourist destinations in the southern fringes of the country.
+          </p>
+          <h3>Explore</h3>
+          <div class="icons">
+            <a href="{{url_for('tourist',city_name='Chennai')}}"><i class="fas fa-landmark"></i></a>
+            <a href="{{url_for('restaurant',city_name='Chennai')}}"><i class="fas fa-utensils"></i></a>
+            <a href="{{url_for('hotel',city_name='Chennai')}}"><i class="fas fa-hotel"></i></a>
+            <a href="{{url_for('cabs',city_name='Chennai')}}"><i class="fas fa-taxi"></i></a>
+         </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-front" style="background-image: url(css/images/city5.jpg);">
+        <div class="inner">
+          <h3>Hyderadab</h3>
+         <p>Telangana</p>
+        </div>
+      </div>
+      <div class="flip-card-back">
+        <div class="inner">
+          <p>
+           Hyderabad is the capital and largest city of the Indian state of Telangana and the de jure capital of Andhra Pradesh.
+           It is known as The City of Pearls, as once it was the only global centre for trade of large diamonds,
+           emeralds and natural pearls. Many traditional and historical bazaars are located around the city.
+          </p>
+          <h3>Explore</h3>
+          <div class="icons">
+            <a href="{{url_for('tourist',city_name='Hyderabad')}}"><i class="fas fa-landmark"></i></a>
+            <a href="{{url_for('restaurant',city_name='Hyderabad')}}"><i class="fas fa-utensils"></i></a>
+            <a href="{{url_for('hotel',city_name='Hyderabad')}}"><i class="fas fa-hotel"></i></a>
+            <a href="{{url_for('cabs',city_name='Hyderabad')}}"><i class="fas fa-taxi"></i></a>
+         </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-front" style="background-image: url(css/images/city6.jpg);">
+        <div class="inner">
+          <h3>Chandigarh</h3>
+         <p>Punjab</p>
+        </div>
+      </div>
+      <div class="flip-card-back">
+        <div class="inner">
+          <p>
+           Chandigarh, the dream city of India's first Prime Minister, Sh. Jawahar Lal Nehru,
+           was planned by the famous French architect Le Corbusier. Picturesquely located at
+           the foothills of Shivaliks, it is known as one of the best experiments in urban planning
+           and modern architecture in the twentieth century in India and is the capital of the states of Punjab and Haryana
+          </p>
+          <h3>Explore</h3>
+          <div class="icons">
+            <a href="{{url_for('tourist',city_name='Chandigarh')}}"><i class="fas fa-landmark"></i></a>
+            <a href="{{url_for('restaurant',city_name='Chandigarh')}}"><i class="fas fa-utensils"></i></a>
+            <a href="{{url_for('hotel',city_name='Chandigarh')}}"><i class="fas fa-hotel"></i></a>
+            <a href="{{url_for('cabs',city_name='Chandigarh')}}"><i class="fas fa-taxi"></i></a>
+         </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- JavaScript -->
+
+<script>
+  const header = document.querySelector("header");
+
+  window.addEventListener("scroll", function () {
+    header.classList.toggle("sticky", window.scrollY > 0);
+  });
+
+  let menu = document.querySelector('#menu-icon');
+  let navbar = document.querySelector('.navbar');
+
+  menu.onclick = () => {
+    menu.classList.toggle('bx-x');
+    navbar.classList.toggle('open');
+  };
+
+  window.onscroll = () => {
+    menu.classList.remove('bx-x');
+    navbar.classList.remove('open');
+  };
+</script>
+  </body>
+</html>

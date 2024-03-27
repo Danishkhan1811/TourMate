@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="css/images/icon.png" type="image/x-icon">
+    <title>TourMate</title>
+    <link rel="stylesheet" href="css/restaurants.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+    <div class="navigation">
+        <div class="logo">
+          <a href="#"><img src="css/images/blogo2.png" /></a>
+        </div>
+        <ul>
+            <li class="list">
+                <a href="{{url_for('city')}}">
+                    <span class="icon"><i class='fas fa-arrow-left'></i></span>
+                    <span class="title"><b>Go Back</b></span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{{url_for('tourist',city_name=city_name)}}">
+                    <span class="icon"><i class="fas fa-landmark"></i></span>
+                    <span class="title"><b>Tourist Spots</b></span>
+                </a>
+            </li>
+            <li class="list active">
+                <a href="{{url_for('restaurant',city_name=city_name)}}">
+                    <span class="icon"><i class="fas fa-utensils"></i></span>
+                    <span class="title"><b>Restaurants</b></span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{{url_for('hotel',city_name=city_name)}}">
+                    <span class="icon"><i class="fas fa-hotel"></i></span>
+                    <span class="title"><b>Hotels</b></span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="{{url_for('cabs',city_name=city_name)}}">
+                    <span class="icon"><i class="fas fa-taxi"></i></span>
+                    <span class="title"><b>Cabs</b></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+<div class=all>
+    <div class="container">
+    <h1 style="padding: 10px; color: #fff;"> Restaurants in {{city_name}}</h1>
+        <div class="row-items">
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{rest_image[0]}}"/>
+            </div>
+            <h4> {{restaurant[0]['name']}} </h4>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[0]) }}</span></p>
+            <p>
+              {{type[0]}}
+            </p>
+            <p><b>Open-Hours:</b> {{time[0]}}</p>
+             <button class="open-popup contact"><i class="fas fa-phone"></i> Contact</button>
+          </div>
+
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{rest_image[1]}}" />
+            </div>
+            <h4>{{restaurant[1]['name']}}</h4>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[1]) }}</span></p>
+            <p>
+             {{type[1]}}
+            </p>
+            <p><b>Open-Hours:</b> {{time[1]}}</p>
+             <button class="open-popup1 contact"><i class="fas fa-phone"></i> Contact</button>
+          </div>
+
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{rest_image[2]}}" />
+            </div>
+            <h4>{{restaurant[2]['name']}}</h4>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[2]) }}</span></p>
+            <p>
+              {{type[2]}}
+            </p>
+            <p><b>Open-Hours:</b> {{time[2]}}</p>
+             <button class="open-popup2 contact"><i class="fas fa-phone"></i> Contact</button>
+          </div>
+
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{rest_image[3]}}" />
+            </div>
+            <h4>{{restaurant[3]['name']}}</h4>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[3]) }}</span></p>
+            <p>
+              {{type[3]}}
+            </p>
+            <p><b>Open-Hours:</b> {{time[3]}}</p>
+             <button class="open-popup3 contact"><i class="fas fa-phone"></i> Contact</button>
+          </div>
+
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{rest_image[4]}}" />
+            </div>
+            <h4>{{restaurant[4]['name']}}</h4>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[4]) }}</span></p>
+            <p>
+              {{type[4]}}
+            </p>
+            <p><b>Open-Hours:</b> {{time[4]}}</p>
+             <button class="open-popup4 contact"><i class="fas fa-phone"></i> Contact</button>
+          </div>
+
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{rest_image[5]}}" />
+            </div>
+            <h4>{{restaurant[5]['name']}}</h4>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[5]) }}</span></p>
+            <p>
+              {{type[5]}}
+            </p>
+            <p><b>Open-Hours:</b> {{time[5]}}</p>
+             <button class="open-popup5 contact"><i class="fas fa-phone"></i> Contact</button>
+          </div>
+
+          <div class="container-box">
+              <div class="container-img">
+                <img src="{{rest_image[6]}}" />
+              </div>
+              <h4>{{restaurant[6]['name']}}</h4>
+              <p><b>Rating :</b> <span>{{ generate_star_rating(rating[6]) }}</span></p>
+              <p>
+                {{type[6]}}
+              </p>
+              <p><b>Open-Hours:</b> {{time[6]}}</p>
+               <button class="open-popup6 contact"><i class="fas fa-phone"></i> Contact</button>
+            </div>
+
+            <div class="container-box">
+              <div class="container-img">
+                <img src="{{rest_image[7]}}" />
+              </div>
+              <h4>{{restaurant[7]['name']}}</h4>
+              <p><b>Rating :</b> <span>{{ generate_star_rating(rating[7]) }}</span></p>
+              <p>
+                {{type[7]}}
+              </p>
+              <p><b>Open-Hours:</b> {{time[7]}}</p>
+               <button class="open-popup7 contact"><i class="fas fa-phone"></i> Contact</button>
+            </div>
+
+            <div class="container-box">
+              <div class="container-img">
+                <img src="{{rest_image[8]}}" />
+              </div>
+              <h4>{{restaurant[8]['name']}}</h4>
+              <p><b>Rating :</b> <span>{{ generate_star_rating(rating[8]) }}</span></p>
+              <p>
+                {{type[8]}}
+              </p>
+              <p><b>Open-Hours:</b> {{time[8]}}</p>
+               <button class="open-popup8 contact"><i class="fas fa-phone"></i> Contact</button>
+            </div>
+        </div>
+      </div>
+<div class="popup">
+    <h1>Contact</h1>
+    <button class="close-btn">&times;</button>
+    <div class="info">
+      <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+      <p>
+          {{addr[0]}}
+      </p>
+      <h3><i class="fas fa-phone"></i> Phone</h3>
+      <p>{{cont[0]}}</p>
+    </div>
+</div>
+
+      <div class="popup1">
+        <h1>Contact</h1>
+        <button class="close-btn1">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+           {{addr[1]}}
+          </p>
+          <h3><i class="fas fa-phone"></i> Phone</h3>
+          <p>{{cont[1]}}</p>
+        </div>
+      </div>
+
+      <div class="popup2">
+        <h1>Contact</h1>
+        <button class="close-btn2">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+            {{addr[2]}}
+          </p>
+          <h3><i class="fas fa-phone"></i> Phone</h3>
+          <p>{{cont[2]}}</p>
+        </div>
+      </div>
+
+      <div class="popup3">
+        <h1>Contact</h1>
+        <button class="close-btn3">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+            {{addr[3]}}
+          </p>
+          <h3><i class="fas fa-phone"></i> Phone</h3>
+          <p>{{cont[3]}}</p>
+        </div>
+      </div>
+
+      <div class="popup4">
+        <h1>Contact</h1>
+        <button class="close-btn4">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+           {{addr[4]}}
+          </p>
+          <h3><i class="fas fa-phone"></i> Phone</h3>
+          <p>{{cont[4]}}</p>
+        </div>
+      </div>
+
+      <div class="popup5">
+        <h1>Contact</h1>
+        <button class="close-btn5">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+           {{addr[5]}}
+          </p>
+          <h3><i class="fas fa-phone"></i> Phone</h3>
+          <p>{{cont[5]}}</p>
+        </div>
+      </div>
+
+      <div class="popup6">
+        <h1>Contact</h1>
+        <button class="close-btn6">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+            {{addr[6]}}
+          </p>
+          <h3><i class="fas fa-phone"></i> Phone</h3>
+          <p>{{cont[6]}}</p>
+        </div>
+      </div>
+
+      <div class="popup7">
+        <h1>Contact</h1>
+        <button class="close-btn7">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+            {{addr[7]}}
+          </p>
+          <h3><i class="fas fa-phone"></i> Phone</h3>
+          <p>{{cont[7]}}</p>
+        </div>
+      </div>
+
+      <div class="popup8">
+        <h1>Contact</h1>
+        <button class="close-btn8">&times;</button>
+        <div class="info">
+          <h3><i class="fa-sharp fa-solid fa-location-dot"></i> Address</h3>
+          <p>
+            {{addr[8]}}
+          </p>
+          <h3><i class="fas fa-phone"></i> Phone</h3>
+          <p>{{cont[8]}}</p>
+        </div>
+      </div>
+</div>
+
+
+      <script>
+        var buttons = document.getElementsByClassName('open-popup');
+         for(var i=0; i<buttons.length; i++){
+        buttons[i].addEventListener("click", function() {
+            document.body.classList.add("active-popup");
+          });
+
+  }
+        // var btnContainer = document.getElementsByClassName("open-popup");
+        // btnContainer[0].addEventListener("click", function () {
+        //     document.body.classList.add("active-popup");
+        //   });
+
+        document.querySelector(".popup .close-btn")
+          .addEventListener("click", function () {
+            document.body.classList.remove("active-popup");
+          });
+
+
+          //////////////////////////////
+
+      var buttons = document.getElementsByClassName("open-popup1");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup1");
+        });
+      }
+      document
+        .querySelector(".popup1 .close-btn1")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup1");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup2");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup2");
+        });
+      }
+      document
+        .querySelector(".popup2 .close-btn2")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup2");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup3");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup3");
+        });
+      }
+      document
+        .querySelector(".popup3 .close-btn3")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup3");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup4");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup4");
+        });
+      }
+      document
+        .querySelector(".popup4 .close-btn4")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup4");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup5");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup5");
+        });
+      }
+      document
+        .querySelector(".popup5 .close-btn5")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup5");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup6");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup6");
+        });
+      }
+      document
+        .querySelector(".popup6 .close-btn6")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup6");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup7");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup7");
+        });
+      }
+      document
+        .querySelector(".popup7 .close-btn7")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup7");
+        });
+
+////////////////////////////////
+
+var buttons = document.getElementsByClassName("open-popup8");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function () {
+          document.body.classList.add("active-popup8");
+        });
+      }
+      document
+        .querySelector(".popup8 .close-btn8")
+        .addEventListener("click", function () {
+          document.body.classList.remove("active-popup8");
+        });
+
+////////////////////////////////
+      </script>
+
+
+
+
+    <script>
+        const list = document.querySelectorAll('.list');
+        function activeLink(){
+            list.forEach((item)=>
+            item.classList.remove('active'));
+            this.classList.add('active');
+        }
+
+        list.forEach((item)=>
+        item.addEventListener('click',activeLink));
+    </script>
+</body>
+</html>

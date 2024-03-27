@@ -1,0 +1,104 @@
+<html>
+  <head>
+      <link rel="icon" href="css/images/icon.png" type="image/x-icon">
+    <title>Tourist Spots</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  	<link rel="stylesheet" type="text/css" href="css/admin.css">
+    <script>
+        function updateRestaurant(form) {
+            var xhr = new XMLHttpRequest();
+            xhr.open(form.method, form.action);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    alert('Tourist Spot successfully updated');
+                } else {
+                    alert('Error updating Tourist Spot');
+                }
+            };
+            xhr.send(new FormData(form));
+        }
+
+        function deleteRestaurant(form) {
+            var xhr = new XMLHttpRequest();
+            xhr.open(form.method, form.action);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    alert('Tourist Spot successfully deleted');
+                    form.closest('tr').remove();
+                } else {
+                    alert('Error deleting Tourist Spot');
+                }
+            };
+            xhr.send(new FormData(form));
+        }
+
+         function showAddForm() {
+            document.getElementById('add-form').style.display = 'block';
+        }
+
+        function hideAddForm() {
+            document.getElementById('add-form').style.display = 'none';
+        }
+    </script>
+  </head>
+  <body>
+    <h1>Tourist Spots</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Location</th>
+          <th>Image</th>
+          <th>Timing</th>
+          <th>Address</th>
+          <th>Update</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+     <tbody>
+            {% for row in data %}
+            <tr>
+                <form method="POST" action="{{ url_for('update_spot') }}" onsubmit="event.preventDefault(); updateRestaurant(this);">
+                    <input type="hidden" name="id" value="{{ row[0] }}">
+                    <td>{{ row[0] }}</td>
+                    <td class="name"><input type="text" name="name" value="{{ row[1] }}"></td>
+                    <td class="description"><input type="text" name="description" value="{{ row[2] }}"></td>
+                    <td class="location"><input type="text" name="location" value="{{ row[3] }}"></td>
+                    <td class="image"><input type="text" name="image" value="{{ row[4] }}"></td>
+                    <td class="timings"><input type="text" name="timings" value="{{ row[5] }}"></td>
+                    <td class="address"><input type="text" name="address" value="{{ row[6] }}"></td>
+                    <td><button type="submit" class="update-btn"><i class='fas fa-pen'></i> Update</button></td>
+                </form>
+                <td>
+                    <form method="POST" action="{{ url_for('delete_spot', id=row[0]) }}" onsubmit="event.preventDefault(); deleteRestaurant(this);">
+                        <button type="submit" class="delete-btn"><i class='fas fa-trash'></i> Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button onclick="showAddForm()" class="add-btn">Add Tourist Spot</button>
+    <div id="add-form" class="add-form">
+        <h2>Add New Spot</h2>
+        <form method="POST" action="{{ url_for('add_spot') }}">
+            <label>Name:</label><br>
+            <input type="text" name="name" required /><br>
+            <label>Description:</label><br>
+            <input type="text" name="description" required /><br>
+            <label>Location:</label><br>
+            <input type="text" name="location" required /><br>
+            <label>Image url:</label><br>
+            <input type="text" name="image" required /><br>
+            <label>Timing:</label><br>
+            <input type="text" name="timings" required /><br>
+            <label>Address:</label><br>
+            <input type="text" name="address" required /><br>
+            <button type="submit" class="add-submit">Submit</button>
+            <button type="button" onclick="hideAddForm()" class="add-cancel">Cancel</button>
+        </form>
+    </div>
+  </body>
+</html>

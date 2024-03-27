@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="css/images/icon.png" type="image/x-icon">
+    <title>TourMate</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+	<!--header--->
+	<header>
+        <a href="{{url_for('main')}}" class="logo"><img src="css/images/logo.png"></a>
+		<a href="{{url_for('main')}}" class="logo2"><img src="css/images/blogo.png"></a>
+		<div class="bx bx-menu" id="menu-icon"></div>
+		<ul class="navbar">
+			<li><a href="{{url_for('main')}}">Home</a></li>
+			<li><a href="{{url_for('city')}}">City</a></li>
+			<li><a href="{{url_for('translate')}}">Translate</a></li>
+			<li><a href="{{url_for('weather')}}">Weather</a></li>
+	        <li class="logout-btn"><a href="{{url_for('logout')}}"><div class="bx bx-log-out"></div> Log Out</a></li>
+	</ul>
+	</header>
+
+	<!--Home section--->
+	<section class="home" id="home">
+		<div class="home-text">
+			<h1>An Online <br>Travel Guide</h1>
+			<p>One Stop Solution to all your needs.</p>
+		<!--	<a href="{{url_for('login')}}" class="home-btn"><b>Sign Up</b></a>-->
+		</div>
+	</section>
+
+
+
+    <!-- Description     -->
+	<a id="objectives"></a>
+    <section class="features">
+        <h1>What Can TourMate Do?</h1>
+        <div class="row">
+        <div class="des-col">
+          <h3>Easy Assistance</h3>
+          <p>
+            An easy-to-use and cost-free tool that changes the traditional
+            practice of travelling with a tour guide and eliminates the risks
+            that come along with it
+          </p>
+          <p></p>
+        </div>
+
+        <div class="des-col">
+          <h3>Range of Services</h3>
+          <p>
+            Get information about nearby tourist spots, local food and other
+            necessities along with a language translator and book cabs & hotels
+            with a simple User Interface.
+          </p>
+        </div>
+        <div class="des-col">
+          <h3>One Stop Solution</h3>
+          <p>
+            Reducing the hassle that comes along with using multiple
+            applications by providing an all in one solution
+            while giving you the freedom to move by your choice
+          </p>
+        </div>
+      </div>
+		<a id="aboutus"></a>
+    </section>
+
+
+    <!-- ABOUT US -->
+
+    <div class="about-us" id="about-us">
+        <div class="about-image">
+            <img src="css/images/aboutus.png">
+        </div>
+        <div class="about-content">
+            <h3>About Us</h3>
+            <p>TourMate aims to eliminate the need of having a tour guide by
+			your side at all times and save the hefty amount of money spent on guides and travel agents
+			due to the unavailability of such applications. This also eliminates the risks that come with
+			travelling alongside a guide and gives you the freedom of travelling at your will without
+			depending on someone else. Now you can visit places depending on your own comfort. With no major ‘all in one’ applications available for a tourist, TourMate is here to fill that void and
+			provide a cost effective & easily accessible tool.</p>
+            </div>
+    </div>
+
+
+
+
+	<!--container--->
+	<a id="services"></a>
+	<section class="container">
+		<div class="text">
+			<h2>Vacation made easier<br>with Lots of Services!</h2>
+		</div>
+
+		<div class="row-items">
+			<div class="container-box">
+				<div class="container-img">
+					<img src="css/images/trip1.png">
+				</div>
+				<h4>Tourist Spots</h4>
+				<p>Find the best tourist<br>spots near you</p>
+			</div>
+
+			<div class="container-box">
+				<div class="container-img">
+					<img src="css/images/trip2.png">
+				</div>
+				<h4>Food</h4>
+				<p>Get information about<br>reataurants</p>
+			</div>
+
+			<div class="container-box">
+				<div class="container-img">
+					<img src="css/images/trip3.png">
+				</div>
+				<h4>Book Cabs</h4>
+				<p>Book cabs<br>from within the app</p>
+			</div>
+
+			<div class="container-box">
+				<div class="container-img">
+					<img src="css/images/trip4.png">
+				</div>
+				<h4>Find Hotels</h4>
+				<p>Find and book hotels<br>as per your need</p>
+			</div>
+
+            <div class="container-box">
+				<div class="container-img">
+					<img src="css/images/trip5.png">
+				</div>
+				<h4>Translator</h4>
+				<p>Easy to use<br>langue translation feature</p>
+			</div>
+
+            <div class="container-box">
+				<div class="container-img">
+					<img src="css/images/trip6.png">
+				</div>
+				<h4>Weather</h4>
+				<p>Easy to use<br>weather tracker</p>
+			</div>
+
+
+		</div>
+	</section>
+
+	<!--Newsletter--->
+	<!-- <section class="newsletter">
+		<div class="news-text">
+			<h2>Newsletter</h2>
+		</div>
+
+		<div class="send">
+			<form>
+				<input type="email" placeholder="Write Your Email" required>
+				<input type="submit" value="Submit" id="submit">
+			</form>
+		</div>
+	</section> -->
+
+	<!--footer--->
+	<section id="contact">
+		<div class="footer">
+			<div class="main">
+				<div class="list">
+					<h4>Quick Links</h4>
+					<ul>
+						<li><a href="#home">Home</a></li>
+						<li><a href="#objectives">Objectives</a></li>
+						<li><a href="#aboutus">About us</a></li>
+						<li><a href="#services">Our Services</a></li>
+					</ul>
+				</div>
+
+				<div class="list">
+					<h4>Contact Info</h4>
+					<ul>
+
+
+						<li><a href="#">98 West 21th Street</a></li>
+						<li><a href="#">New York NY 10016</a></li>
+						<li><a href="#">+1(123)-456-7890</a></li>
+						<li><a href="#">info@mydomain.com</a></li>
+					</ul>
+				</div>
+
+				<div class="list">
+					<h4>Connect</h4>
+					<div class="social">
+						<a href="#"><i class='bx bxl-facebook' ></i></a>
+						<a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+						<a href="#"><i class='bx bxl-twitter' ></i></a>
+						<a href="#"><i class='bx bxl-linkedin' ></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<!--link to js--->
+	<script type="text/javascript" src="js/homescript.js"></script>
+
+</body>
+</html>

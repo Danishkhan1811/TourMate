@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="css/images/icon.png" type="image/x-icon" />
+    <title>TourMate</title>
+    <link rel="stylesheet" href="css/hotel.css" />
+        <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="all">
+      <div class="navigation">
+        <div class="logo">
+          <a href="#"><img src="css/images/blogo2.png" /></a>
+        </div>
+        <ul>
+          <li class="list">
+            <a href="{{url_for('city',city_name=city_name)}}">
+              <span class="icon"><i class="fas fa-arrow-left"></i></span>
+              <span class="title"><b>Go Back</b></span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="{{url_for('tourist',city_name=city_name)}}">
+              <span class="icon"><i class="fas fa-landmark"></i></span>
+              <span class="title"><b>Tourist Spots</b></span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="{{url_for('restaurant',city_name=city_name)}}">
+              <span class="icon"><i class="fas fa-utensils"></i></span>
+              <span class="title"><b>Restaurants</b></span>
+            </a>
+          </li>
+          <li class="list active">
+            <a href="{{url_for('hotel',city_name=city_name)}}">
+              <span class="icon"><i class="fas fa-hotel"></i></span>
+              <span class="title"><b>Hotels</b></span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="{{url_for('cabs',city_name=city_name)}}">
+              <span class="icon"><i class="fas fa-taxi"></i></span>
+              <span class="title"><b>Cabs</b></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container">
+      <h1 style="padding: 10px; color: #fff;"> Hotels in {{city_name}}</h1>
+        <div class="row-items">
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{hotel_image[0]}}" />
+            </div>
+            <h4>{{hotel[0]}}</h4>
+            <p>{{type[0]}}</p>
+            <p>
+              <b style="color: black"><i class='bx bx-map'></i></b>
+              {{hotel_addr[0]}}
+            </p>
+            <p><i class='bx bx-map-pin'></i> {{dist[0]}}</p>
+            <p class="green"><b>Free Cancellation</b></p>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[0]) }}</span></p>
+            <span>₹{{price[0]}}</span>
+            <a href="{{url_for('hotel_booking',hotel_name=hotel[0],city_name=city_name,price=price[0])}}"><button>Book</button></a>
+          </div>
+
+         <div class="container-box">
+            <div class="container-img">
+              <img src="{{hotel_image[1]}}" />
+            </div>
+            <h4>{{hotel[1]}}</h4>
+            <p>{{type[1]}}</p>
+            <p>
+              <b style="color: black"><i class='bx bx-map'></i></b>
+              {{hotel_addr[1]}}
+            </p>
+            <p><i class='bx bx-map-pin'></i> {{dist[1]}}</p>
+            <p class="green"><b>Free Cancellation</b></p>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[1]) }}</span></p>
+            <span>₹{{price[1]}}</span>
+            <a href="{{url_for('hotel_booking',hotel_name=hotel[1],city_name=city_name,price=price[1])}}"><button class="open-popup">Book</button></a>
+          </div>
+
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{hotel_image[2]}}" />
+            </div>
+            <h4>{{hotel[2]}}</h4>
+            <p>{{type[2]}}</p>
+            <p>
+              <b style="color: black"><i class='bx bx-map'></i></b>
+              {{hotel_addr[2]}}
+            </p>
+            <p><i class='bx bx-map-pin'></i> {{dist[2]}}</p>
+            <p class="green"><b>Free Cancellation</b></p>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[2]) }}</span></p>
+            <span>₹{{price[2]}}</span>
+            <a href="{{url_for('hotel_booking',hotel_name=hotel[2],city_name=city_name,price=price[2])}}"><button class="open-popup">Book</button></a>
+          </div>
+
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{hotel_image[3]}}" />
+            </div>
+            <h4>{{hotel[3]}}</h4>
+            <p>{{type[3]}}</p>
+            <p>
+              <b style="color: black"><i class='bx bx-map'></i></b>
+              {{hotel_addr[3]}}
+            </p>
+            <p><i class='bx bx-map-pin'></i> {{dist[3]}}</p>
+            <p class="green"><b>Free Cancellation</b></p>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[3]) }}</span></p>
+            <span>₹{{price[3]}}</span>
+            <a href="{{url_for('hotel_booking',hotel_name=hotel[3],city_name=city_name,price=price[3])}}"><button class="open-popup">Book</button></a>
+          </div>
+
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{hotel_image[4]}}" />
+            </div>
+            <h4>{{hotel[4]}}</h4>
+            <p>{{type[4]}}</p>
+            <p>
+              <b style="color: black"><i class='bx bx-map'></i></b>
+              {{hotel_addr[4]}}
+            </p>
+            <p><i class='bx bx-map-pin'></i> {{dist[4]}}</p>
+            <p class="green"><b>Free Cancellation</b></p>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[4]) }}</span></p>
+            <span>₹{{price[4]}}</span>
+            <a href="{{url_for('hotel_booking',hotel_name=hotel[4],city_name=city_name,price=price[4])}}"><button class="open-popup">Book</button></a>
+          </div>
+
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{hotel_image[5]}}" />
+            </div>
+            <h4>{{hotel[5]}}</h4>
+            <p>{{type[5]}}</p>
+            <p>
+              <b style="color: black"><i class='bx bx-map'></i></b>
+              {{hotel_addr[5]}}
+            </p>
+            <p><i class='bx bx-map-pin'></i> {{dist[5]}}</p>
+            <p class="green"><b>Free Cancellation</b></p>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[5]) }}</span></p>
+            <span>₹{{price[5]}}</span>
+            <a href="{{url_for('hotel_booking',hotel_name=hotel[5],city_name=city_name,price=price[5])}}"><button class="open-popup">Book</button></a>
+          </div>
+
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{hotel_image[6]}}" />
+            </div>
+            <h4>{{hotel[6]}}</h4>
+            <p>{{type[6]}}</p>
+            <p>
+              <b style="color: black"><i class='bx bx-map'></i></b>
+              {{hotel_addr[6]}}
+            </p>
+            <p><i class='bx bx-map-pin'></i> {{dist[6]}}</p>
+            <p class="green"><b>Free Cancellation</b></p>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[6]) }}</span></p>
+            <span>₹{{price[6]}}</span>
+            <a href="{{url_for('hotel_booking',hotel_name=hotel[6],city_name=city_name,price=price[6])}}"><button class="open-popup">Book</button></a>
+          </div>
+
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{hotel_image[7]}}" />
+            </div>
+            <h4>{{hotel[7]}}</h4>
+            <p>{{type[7]}}</p>
+            <p>
+              <b style="color: black"><i class='bx bx-map'></i></b>
+              {{hotel_addr[7]}}
+            </p>
+            <p><i class='bx bx-map-pin'></i> {{dist[7]}}</p>
+            <p class="green"><b>Free Cancellation</b></p>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[7]) }}</span></p>
+            <span>₹{{price[7]}}</span>
+            <a href="{{url_for('hotel_booking',hotel_name=hotel[7],city_name=city_name,price=price[7])}}"><button class="open-popup">Book</button></a>
+          </div>
+
+          <div class="container-box">
+            <div class="container-img">
+              <img src="{{hotel_image[8]}}" />
+            </div>
+            <h4>{{hotel[8]}}</h4>
+            <p>{{type[8]}}</p>
+            <p>
+              <b style="color: black"><i class='bx bx-map'></i></b>
+              {{hotel_addr[8]}}
+            </p>
+            <p><i class='bx bx-map-pin'></i> {{dist[8]}}</p>
+            <p class="green"><b>Free Cancellation</b></p>
+            <p><b>Rating :</b> <span>{{ generate_star_rating(rating[8]) }}</span></p>
+            <span>₹{{price[8]}}</span>
+            <a href="{{url_for('hotel_booking',hotel_name=hotel[8],city_name=city_name,price=price[8])}}"><button class="open-popup">Book</button></a>
+          </div>
+
+        </div>
+      </div>
+
+    <!--  <div class="popup">-->
+    <!--    <h1>Enter Details</h1>-->
+    <!--    <button class="close-btn">&times;</button>-->
+    <!--    <div class="booking-form">-->
+    <!--      <label>Name:</label>-->
+    <!--      <input type="text" name="form-control" placeholder="Enter Your Name">-->
+    <!--      <div class="input-grp">-->
+    <!--      <label>Arrival:</label>-->
+    <!--      <input type="date" name="form-control select-date">-->
+    <!--      </div>-->
+    <!--      <div class="input-grp">-->
+    <!--      <label>Departure:</label>-->
+    <!--      <input type="date" name="form-control select-date">-->
+    <!--      </div>-->
+    <!--      <div class="input-grp">-->
+    <!--      <label>Adults:</label>-->
+    <!--      <input type="number" name="form-control" value="1">-->
+    <!--      </div>-->
+    <!--      <div class="input-grp">-->
+    <!--      <label>Children:</label>-->
+    <!--      <input type="number" name="form-control" value="0">-->
+    <!--      </div>-->
+    <!--        <div class="input-grp">-->
+    <!--      <label>Bed:</label>-->
+    <!--      <select class="custom-select">-->
+    <!--        <option value="1">Single Bed</option>-->
+    <!--        <option value="2">Double Bed</option>-->
+    <!--      </select>-->
+    <!--      </div>-->
+    <!--      <a class="submitbtn" href="#"><button>Submit</button></a>-->
+    <!--      </div>-->
+    <!--    </p>-->
+    <!--  </div>-->
+    <!--</div>-->
+<!--  <script>-->
+<!--      var buttons = document.getElementsByClassName('open-popup');-->
+<!--       for(var i=0; i<buttons.length; i++){-->
+<!--      buttons[i].addEventListener("click", function() {-->
+<!--          document.body.classList.add("active-popup");-->
+<!--        });-->
+<!--}-->
+
+<!--      document.querySelector(".popup .close-btn")-->
+<!--        .addEventListener("click", function () {-->
+<!--          document.body.classList.remove("active-popup");-->
+<!--        });-->
+<!--    </script>-->
+
+    <script>
+      const list = document.querySelectorAll(".list");
+      function activeLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+
+      list.forEach((item) => item.addEventListener("click", activeLink));
+    </script>
+  </body>
+</html>

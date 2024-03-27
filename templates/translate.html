@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="css/images/icon.png" type="image/x-icon">
+  <title>TourMate</title>
+  <link rel="stylesheet" href="css/trstyle.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,700;1,100;1,400;1,600&display=swap');
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+
+<body>
+
+  <header>
+    <a href="{{url_for('main')}}" class="logo"><img src="css/images/logo.png"></a>
+    <a href="{{url_for('main')}}" class="logo2"><img src="css/images/blogo.png"></a>
+    <div class="bx bx-menu" id="menu-icon"></div>
+    <ul class="navbar">
+      <li><a href="{{url_for('main')}}">Home</a></li>
+      <li><a href="{{url_for('city')}}">City</a></li>
+      <li><a href="{{url_for('translate')}}">Translate</a></li>
+      <li><a href="{{url_for('weather')}}">Weather</a></li>
+      <li class="logout-btn"><a href="{{url_for('logout')}}"><div class="bx bx-log-out"></div> Log Out</a></li>
+    </ul>
+  </header>
+
+  <!-- actual translate code -->
+
+  <div class="container">
+    <div class="wrapper">
+      <div class="text-input">
+        <textarea spellcheck="false" class="from-text" placeholder="Enter Text or Speak"></textarea>
+        <textarea spellcheck="false" readonly disabled class="to-text" placeholder="Translation"></textarea>
+      </div>
+      <ul class="controls">
+        <li class="row from">
+          <div class="icons">
+            <i id="from" class="fas fa-volume-up"></i>
+            <i id="from" class="fas fa-copy"></i>
+          </div>
+          <select></select>
+        </li>
+        <li class="exchange"><i class="fas fa-exchange-alt"></i></li>
+        <li class="row to">
+          <select></select>
+          <div class="icons">
+            <i id="to" class="fas fa-volume-up"></i>
+            <i id="to" class="fas fa-copy"></i>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="scontainer">
+      <div class="options">
+        <div class="language">
+          <p>Language</p>
+          <select name="input-language" id="language"></select>
+        </div>
+      </div>
+      <!-- <div class="line"></div> -->
+      <button class="btn record">
+        <div class="icon">
+          <ion-icon name="mic-outline"></ion-icon>
+          <img src="css/images/bars.svg" alt="" />
+        </div>
+        <p>Start Listening</p>
+      </button>
+      <p class="heading" style="visibility: hidden;">Result :</p>
+      <div style="visibility: hidden"
+        class="result"
+        spellcheck="false"
+        placeholder="Text will be shown here"
+      >
+        <p class="interim"></p>
+      </div>
+      <div class="buttons" style="visibility: hidden;">
+        <button class="btn clear">
+          <ion-icon name="trash-outline"></ion-icon>
+          <p>Clear</p>
+        </button>
+        <button class="btn download" disabled>
+          <ion-icon name="cloud-download-outline"></ion-icon>
+          <p>Download</p>
+        </button>
+      </div>
+    </div>
+    <button >Translate</button>
+  </div>
+
+
+  <!-- IONICONS -->
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+</body>
+
+<script src="js/countries.js"></script>
+<script src="js/trscript.js"></script>
+  <!-- LANGUAGES -->
+  <script src="js/languages.js"></script>
+
+  <!-- SCRIPT -->
+  <script src="js/speech.js"></script>
+<!-- JavaScript -->
+
+<script>
+  const header = document.querySelector("header");
+
+  window.addEventListener("scroll", function () {
+    header.classList.toggle("sticky", window.scrollY > 0);
+  });
+
+  let menu = document.querySelector('#menu-icon');
+  let navbar = document.querySelector('.navbar');
+
+  menu.onclick = () => {
+    menu.classList.toggle('bx-x');
+    navbar.classList.toggle('open');
+  };
+
+  window.onscroll = () => {
+    menu.classList.remove('bx-x');
+    navbar.classList.remove('open');
+  };
+</script>
+
+</html>
