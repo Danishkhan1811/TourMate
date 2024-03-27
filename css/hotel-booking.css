@@ -1,0 +1,322 @@
+/* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-color: #fff;
+    --text-color: #221314;
+    --second-color: #5a7184;
+    --main-color: #397afa;
+    --big-font: 6rem;
+    --h2-font: 3rem;
+    --p-font: 1.1rem;
+}
+
+body{
+    background: #042f4b;
+}
+
+
+.form-body{
+    margin-left: 90px;
+    margin-right: 20px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.logo img {
+    width: 220px;
+    padding-left: 7px;
+    padding-top: 10px;
+}
+
+.navigation {
+    z-index: 1;
+    position: fixed;
+    height: 100vh;
+    width: 70px;
+    background: #fff;
+    box-shadow: 10px 0 0 #397afa;
+    overflow-x: hidden;
+    transition: width 0.5s;
+}
+
+.navigation:hover {
+    width: 230px;
+}
+
+.navigation ul {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 50px;
+}
+
+.navigation ul li {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.navigation ul li.active {
+    background-color: #397afa;
+}
+
+.navigation ul li.active a {
+    color: #fff;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #000;
+}
+
+.navigation ul li.active a::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 15px 15px 0 #397afa;
+}
+
+.navigation ul li.active a::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 15px -15px 0 #397afa;
+}
+
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+
+.navigation ul li a.icon {
+    position: relative;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.form-container{
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.form-container header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+.form-container header::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color: #4070f4;
+}
+.form-container form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 330px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.form-container form .form{
+    position: absolute;
+    background-color: #fff;
+    transition: 0.3s ease;
+}
+.form-container form .form.second{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(100%);
+}
+form.secActive .form.second{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+form.secActive .form.first{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+}
+.form-container form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+.form-container form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+form .fields .input-field{
+    display: flex;
+    width: calc(100% / 3 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+.input-field label{
+    font-size: 16px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+.input-field input, select{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+.input-field input :focus,
+.input-field select:focus{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+.input-field select,
+.input-field input[type="date"]{
+    color: #707070;
+}
+.input-field input[type="date"]:valid{
+    color: #333;
+}
+
+.fields button{
+    border: 2px solid #397afa;
+    height: 45px;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #397afa;
+    transition: all 0.3s linear;
+    cursor: pointer;
+    margin: 10px 0px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+
+.fields button:hover{
+     background-color: #397afa;
+    color: #fff;
+}
+
+
+@media (max-width: 750px) {
+    .form-container form{
+        overflow-y: scroll;
+    }
+    .form-container form::-webkit-scrollbar{
+       display: none;
+    }
+    form .fields .input-field{
+        width: calc(100% / 2 - 15px);
+    }
+    .form-container form{
+    min-height: 335px;
+    }
+}
+
+@media (max-width: 550px) {
+        .form-body{
+    margin-left: 80px;
+    margin-right: 5px;
+    }
+
+    .form-container{
+    padding: 15px;
+    }
+
+    .form-container form{
+    min-height: 800px;
+    }
+    form .fields .input-field{
+        width: 100%;
+        margin: 3px 0;
+    }
+}
+
+@media (max-width: 400px) {
+ form .fields .input-field{
+        width: 90%;
+    }
+
+    .form-container form{
+    min-height: 575px;
+    }
+
+    form .fields .input-field{
+        width: 78%;
+    }
+}
